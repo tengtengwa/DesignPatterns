@@ -1,4 +1,4 @@
-package factory
+package creationPattern.factory
 
 fun main() {
     val benz = CarFactory.makeCar(CarFactory.BENZ)

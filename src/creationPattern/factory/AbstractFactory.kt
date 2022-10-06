@@ -1,4 +1,4 @@
-package factory
+package creationPattern.factory
 
 fun main() {
     val androidFactory = AndroidFactory()
