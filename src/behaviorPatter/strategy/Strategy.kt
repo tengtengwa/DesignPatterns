@@ -20,18 +20,18 @@ fun main() {
  */
 
 class PriceCalculator {
-    lateinit var strategy: Strategy
+    lateinit var strategy: IStrategy
 
     fun calculatePrice(km: Int): Int {
         return strategy.calculatePrice(km)
     }
 }
 
-interface Strategy {
+interface IStrategy {
     fun calculatePrice(km: Int): Int
 }
 
-class BusStrategy : Strategy {
+class BusStrategy : IStrategy {
     override fun calculatePrice(km: Int): Int {
         return if (km <= 5) {
             10
@@ -43,6 +43,6 @@ class BusStrategy : Strategy {
     }
 }
 
-class TaxiStrategy : Strategy {
+class TaxiStrategy : IStrategy {
     override fun calculatePrice(km: Int) = km * 2
 }

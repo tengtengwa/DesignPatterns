@@ -12,12 +12,12 @@ fun main() {
     headCompany.raiseSalary()
 }
 
-interface CompanyComponent {
+interface ICompanyComponent {
     fun recruit()
     fun raiseSalary()
 }
 
-class HeadCompany : CompanyComponent {
+class HeadCompany : ICompanyComponent {
     private val subCompanyComponent = SubCompanyComponent()
     private val managementOffice = ManagementOffice()
 
@@ -36,7 +36,7 @@ class HeadCompany : CompanyComponent {
     }
 }
 
-class SubCompanyComponent : CompanyComponent {
+class SubCompanyComponent : ICompanyComponent {
     override fun recruit() {
         println("子公司招人了")
     }
@@ -46,7 +46,7 @@ class SubCompanyComponent : CompanyComponent {
     }
 }
 
-class ManagementOffice : CompanyComponent {
+class ManagementOffice : ICompanyComponent {
     override fun recruit() {
         println("管理办公室招人了")
     }

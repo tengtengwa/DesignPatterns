@@ -23,13 +23,13 @@ fun main() {
  * 缺点：增加类和对象的个数
  */
 
-interface WiFiState {
+interface IWiFiState {
     fun scanWiFi()
 
     fun connectWiFi()
 }
 
-class OpenState : WiFiState {
+class OpenState : IWiFiState {
     override fun scanWiFi() {
         println("开始扫描可用WiFi")
     }
@@ -39,7 +39,7 @@ class OpenState : WiFiState {
     }
 }
 
-class CloseState : WiFiState {
+class CloseState : IWiFiState {
     override fun scanWiFi() {
         println("别看我，我可扫描不了WiFi")
     }
@@ -49,12 +49,12 @@ class CloseState : WiFiState {
     }
 }
 
-interface SettingsController {
+interface ISettingsController {
     fun openWiFi()
     fun closeWiFi()
 }
 
-class WiFiController(private var wiFiState: WiFiState = CloseState()) : SettingsController {
+class WiFiController(private var wiFiState: IWiFiState = CloseState()) : ISettingsController {
 
     override fun openWiFi() {
         wiFiState = OpenState()
